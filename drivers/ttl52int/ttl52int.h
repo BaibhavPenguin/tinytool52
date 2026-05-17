@@ -197,6 +197,12 @@ void ADDUINT24_STATIC_IDATA(uint24t __idata* out , const  uint24t __code* inp1 ,
 void ADDUINT24_STATIC_XDATA(uint24t __xdata* out , const  uint24t __code* inp1 , const  uint24t __code* inp2);
 
 
+void ADDUINT40(uint40t* out , const  uint40t* inp1 , const  uint40t* inp2);
+void ADDUINT40_IDATA(uint40t __idata* out , const  uint40t __idata* inp1 , const  uint40t __idata* inp2);
+void ADDUINT40_XDATA(uint40t __xdata* out , const  uint40t __xdata* inp1 , const  uint40t __xdata* inp2);
+void ADDUINT40_STATIC_IDATA(uint40t __idata* out , const  uint40t __code* inp1 , const  uint40t __code* inp2);
+void ADDUINT40_STATIC_XDATA(uint40t __xdata* out , const  uint40t __code* inp1 , const  uint40t __code* inp2);
+
 
 
 #endif //ttl52int_h
