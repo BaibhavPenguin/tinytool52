@@ -2,7 +2,6 @@
 // Apache License version 2.0
 // ttl52int.h is an implementation of stdint.h on 8051 and 8052 architectures
 
-
 #ifndef ttl52int_h
 #define ttl52int_h
 
@@ -333,7 +332,7 @@ inline void SUBUINT40_STATIC_XDATA(uint40t __xdata* out , const  uint40t __code*
     SUBUINTC_STATIC_XDATA(out->bytes , inp1->bytes , inp2->bytes , UINT40T_SIZE);
 }
 
-/*                                                UINT 48                                                                                      */
+/*                                                              UINT 48                                                                                      */
 
 inline void SUBUINT48(uint48t* out , const  uint48t* inp1 , const  uint48t* inp2){
     SUBUINTC(out->bytes , inp1->bytes , inp2->bytes , UINT48T_SIZE);
@@ -356,7 +355,7 @@ inline void SUBUINT48_STATIC_XDATA(uint48t __xdata* out , const  uint48t __code*
 }
 
 
-/*                                                          UINT56                                                                                        */
+/*                                                              UINT56                                                                                        */
 
 inline void SUBUINT56(uint56t* out , const  uint56t* inp1 , const  uint56t* inp2){
     SUBUINTC(out->bytes , inp1->bytes , inp2->bytes , UINT56T_SIZE);
@@ -379,7 +378,7 @@ inline void SUBUINT56_STATIC_XDATA(uint56t __xdata* out , const  uint56t __code*
 }
 
 
-/*                                                      UINT64                                                                           */
+/*                                                             UINT64                                                                           */
 
 inline void SUBUINT64(uint64t* out , const  uint64t* inp1 , const  uint64t* inp2){
     SUBUINTC(out->bytes , inp1->bytes , inp2->bytes , UINT64T_SIZE);
