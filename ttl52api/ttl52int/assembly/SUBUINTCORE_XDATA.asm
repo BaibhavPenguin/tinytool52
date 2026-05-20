@@ -41,7 +41,7 @@ _SUBUINTC_XDATA_PARM_3:
 	.ds 2
 _SUBUINTC_XDATA_PARM_4:
 	.ds 1
-_SUBUINTC_XDATA_out_10000_111:
+_SUBUINTC_XDATA_out_10000_136:
 	.ds 2
 ;--------------------------------------------------------
 ; indirectly addressable internal ram data
@@ -104,7 +104,7 @@ _SUBUINTC_XDATA_out_10000_111:
 ;inp1          Allocated with name '_SUBUINTC_XDATA_PARM_2'
 ;inp2          Allocated with name '_SUBUINTC_XDATA_PARM_3'
 ;size          Allocated with name '_SUBUINTC_XDATA_PARM_4'
-;out           Allocated with name '_SUBUINTC_XDATA_out_10000_111'
+;out           Allocated with name '_SUBUINTC_XDATA_out_10000_136'
 ;temp          Allocated to registers r1 
 ;carry         Allocated to registers r5 
 ;counter       Allocated to registers r4 
@@ -122,8 +122,8 @@ _SUBUINTC_XDATA:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	mov	_SUBUINTC_XDATA_out_10000_111,dpl
-	mov	(_SUBUINTC_XDATA_out_10000_111 + 1),dph
+	mov	_SUBUINTC_XDATA_out_10000_136,dpl
+	mov	(_SUBUINTC_XDATA_out_10000_136 + 1),dph
 ;	subuintcore/SUBUINTCORE_XDATA.c:5: uint8t carry = 0;
 	mov	r5,#0x00
 ;	subuintcore/SUBUINTCORE_XDATA.c:7: while(counter < size){
@@ -160,10 +160,10 @@ _SUBUINTC_XDATA:
 	mov	r1,a
 ;	subuintcore/SUBUINTCORE_XDATA.c:9: out[counter] = temp & 0xFF;
 	mov	a,r4
-	add	a, _SUBUINTC_XDATA_out_10000_111
+	add	a, _SUBUINTC_XDATA_out_10000_136
 	mov	dpl,a
 	clr	a
-	addc	a, (_SUBUINTC_XDATA_out_10000_111 + 1)
+	addc	a, (_SUBUINTC_XDATA_out_10000_136 + 1)
 	mov	dph,a
 	mov	a,r1
 	movx	@dptr,a

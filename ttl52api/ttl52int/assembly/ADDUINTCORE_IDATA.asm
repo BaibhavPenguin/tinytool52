@@ -41,7 +41,7 @@ _ADDUINTC_IDATA_PARM_3:
 	.ds 1
 _ADDUINTC_IDATA_PARM_4:
 	.ds 1
-_ADDUINTC_IDATA_out_10000_111:
+_ADDUINTC_IDATA_out_10000_136:
 	.ds 1
 ;--------------------------------------------------------
 ; indirectly addressable internal ram data
@@ -104,7 +104,7 @@ _ADDUINTC_IDATA_out_10000_111:
 ;inp1          Allocated with name '_ADDUINTC_IDATA_PARM_2'
 ;inp2          Allocated with name '_ADDUINTC_IDATA_PARM_3'
 ;size          Allocated with name '_ADDUINTC_IDATA_PARM_4'
-;out           Allocated with name '_ADDUINTC_IDATA_out_10000_111'
+;out           Allocated with name '_ADDUINTC_IDATA_out_10000_136'
 ;temp          Allocated to registers r4 r3 
 ;carry         Allocated to registers r6 
 ;counter       Allocated to registers r5 
@@ -122,7 +122,7 @@ _ADDUINTC_IDATA:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	mov	_ADDUINTC_IDATA_out_10000_111,dpl
+	mov	_ADDUINTC_IDATA_out_10000_136,dpl
 ;	adduintcore/ADDUINTCORE_IDATA.c:5: uint8t carry = 0;
 	mov	r6,#0x00
 ;	adduintcore/ADDUINTCORE_IDATA.c:7: while(counter < size){
@@ -158,7 +158,7 @@ _ADDUINTC_IDATA:
 	mov	r3,a
 ;	adduintcore/ADDUINTCORE_IDATA.c:9: out[counter] = temp & 0xFF;
 	mov	a,r5
-	add	a, _ADDUINTC_IDATA_out_10000_111
+	add	a, _ADDUINTC_IDATA_out_10000_136
 	mov	r1,a
 	mov	ar7,r4
 	mov	@r1,ar7

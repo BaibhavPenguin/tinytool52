@@ -41,9 +41,9 @@ _SUBUINTC_IDATA_PARM_3:
 	.ds 1
 _SUBUINTC_IDATA_PARM_4:
 	.ds 1
-_SUBUINTC_IDATA_out_10000_111:
+_SUBUINTC_IDATA_out_10000_136:
 	.ds 1
-_SUBUINTC_IDATA_carry_10000_112:
+_SUBUINTC_IDATA_carry_10000_137:
 	.ds 1
 ;--------------------------------------------------------
 ; indirectly addressable internal ram data
@@ -106,9 +106,9 @@ _SUBUINTC_IDATA_carry_10000_112:
 ;inp1          Allocated with name '_SUBUINTC_IDATA_PARM_2'
 ;inp2          Allocated with name '_SUBUINTC_IDATA_PARM_3'
 ;size          Allocated with name '_SUBUINTC_IDATA_PARM_4'
-;out           Allocated with name '_SUBUINTC_IDATA_out_10000_111'
+;out           Allocated with name '_SUBUINTC_IDATA_out_10000_136'
 ;temp          Allocated to registers r4 
-;carry         Allocated with name '_SUBUINTC_IDATA_carry_10000_112'
+;carry         Allocated with name '_SUBUINTC_IDATA_carry_10000_137'
 ;counter       Allocated to registers r5 
 ;------------------------------------------------------------
 ;	subuintcore/SUBUINTCORE_IDATA.c:3: void SUBUINTC_IDATA(uint8t __idata* out , const uint8t __idata* inp1 , const uint8t __idata* inp2 , uint8t size){
@@ -124,9 +124,9 @@ _SUBUINTC_IDATA:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	mov	_SUBUINTC_IDATA_out_10000_111,dpl
+	mov	_SUBUINTC_IDATA_out_10000_136,dpl
 ;	subuintcore/SUBUINTCORE_IDATA.c:5: uint8t carry = 0;
-	mov	_SUBUINTC_IDATA_carry_10000_112,#0x00
+	mov	_SUBUINTC_IDATA_carry_10000_137,#0x00
 ;	subuintcore/SUBUINTCORE_IDATA.c:7: while(counter < size){
 	mov	r5,#0x00
 00101$:
@@ -143,7 +143,7 @@ _SUBUINTC_IDATA:
 	add	a, _SUBUINTC_IDATA_PARM_3
 	mov	r0,a
 	mov	ar3,@r0
-	mov	a,_SUBUINTC_IDATA_carry_10000_112
+	mov	a,_SUBUINTC_IDATA_carry_10000_137
 	add	a, r3
 	setb	c
 	subb	a,r4
@@ -151,7 +151,7 @@ _SUBUINTC_IDATA:
 	mov	r4,a
 ;	subuintcore/SUBUINTCORE_IDATA.c:9: out[counter] = temp & 0xFF;
 	mov	a,r5
-	add	a, _SUBUINTC_IDATA_out_10000_111
+	add	a, _SUBUINTC_IDATA_out_10000_136
 	push	ar0
 	mov	r0,a
 	mov	@r0,ar4
@@ -160,7 +160,7 @@ _SUBUINTC_IDATA:
 	mov	ar4,@r1
 	mov	ar3,@r0
 	mov	r2,#0x00
-	mov	r6,_SUBUINTC_IDATA_carry_10000_112
+	mov	r6,_SUBUINTC_IDATA_carry_10000_137
 	mov	r7,#0x00
 	mov	a,r6
 	add	a, r3
@@ -178,7 +178,7 @@ _SUBUINTC_IDATA:
 	subb	a,b
 	clr	a
 	rlc	a
-	mov	_SUBUINTC_IDATA_carry_10000_112,a
+	mov	_SUBUINTC_IDATA_carry_10000_137,a
 ;	subuintcore/SUBUINTCORE_IDATA.c:11: counter++;
 	inc	r5
 	sjmp	00101$

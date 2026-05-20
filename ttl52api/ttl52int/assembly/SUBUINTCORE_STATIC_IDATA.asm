@@ -41,11 +41,11 @@ _SUBUINTC_STATIC_IDATA_PARM_3:
 	.ds 2
 _SUBUINTC_STATIC_IDATA_PARM_4:
 	.ds 1
-_SUBUINTC_STATIC_IDATA_out_10000_111:
+_SUBUINTC_STATIC_IDATA_out_10000_136:
 	.ds 1
-_SUBUINTC_STATIC_IDATA_carry_10000_112:
+_SUBUINTC_STATIC_IDATA_carry_10000_137:
 	.ds 1
-_SUBUINTC_STATIC_IDATA_counter_10000_112:
+_SUBUINTC_STATIC_IDATA_counter_10000_137:
 	.ds 1
 ;--------------------------------------------------------
 ; indirectly addressable internal ram data
@@ -108,10 +108,10 @@ _SUBUINTC_STATIC_IDATA_counter_10000_112:
 ;inp1          Allocated with name '_SUBUINTC_STATIC_IDATA_PARM_2'
 ;inp2          Allocated with name '_SUBUINTC_STATIC_IDATA_PARM_3'
 ;size          Allocated with name '_SUBUINTC_STATIC_IDATA_PARM_4'
-;out           Allocated with name '_SUBUINTC_STATIC_IDATA_out_10000_111'
+;out           Allocated with name '_SUBUINTC_STATIC_IDATA_out_10000_136'
 ;temp          Allocated to registers r2 
-;carry         Allocated with name '_SUBUINTC_STATIC_IDATA_carry_10000_112'
-;counter       Allocated with name '_SUBUINTC_STATIC_IDATA_counter_10000_112'
+;carry         Allocated with name '_SUBUINTC_STATIC_IDATA_carry_10000_137'
+;counter       Allocated with name '_SUBUINTC_STATIC_IDATA_counter_10000_137'
 ;------------------------------------------------------------
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:3: void SUBUINTC_STATIC_IDATA(uint8t __idata* out , const uint8t __code* inp1 , const uint8t __code* inp2 , uint8t size){
 ;	-----------------------------------------
@@ -126,18 +126,18 @@ _SUBUINTC_STATIC_IDATA:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	mov	_SUBUINTC_STATIC_IDATA_out_10000_111,dpl
+	mov	_SUBUINTC_STATIC_IDATA_out_10000_136,dpl
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:5: uint8t carry = 0;
-	mov	_SUBUINTC_STATIC_IDATA_carry_10000_112,#0x00
+	mov	_SUBUINTC_STATIC_IDATA_carry_10000_137,#0x00
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:7: while(counter < size){
-	mov	_SUBUINTC_STATIC_IDATA_counter_10000_112,#0x00
+	mov	_SUBUINTC_STATIC_IDATA_counter_10000_137,#0x00
 00101$:
 	clr	c
-	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_112
+	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_137
 	subb	a,_SUBUINTC_STATIC_IDATA_PARM_4
 	jnc	00103$
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:8: temp =  inp1[counter] -  (inp2[counter] + carry);
-	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_112
+	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_137
 	add	a, _SUBUINTC_STATIC_IDATA_PARM_2
 	mov	r3,a
 	clr	a
@@ -148,7 +148,7 @@ _SUBUINTC_STATIC_IDATA:
 	clr	a
 	movc	a,@a+dptr
 	mov	r2,a
-	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_112
+	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_137
 	add	a, _SUBUINTC_STATIC_IDATA_PARM_3
 	mov	r6,a
 	clr	a
@@ -158,14 +158,14 @@ _SUBUINTC_STATIC_IDATA:
 	mov	dph,r7
 	clr	a
 	movc	a,@a+dptr
-	add	a,_SUBUINTC_STATIC_IDATA_carry_10000_112
+	add	a,_SUBUINTC_STATIC_IDATA_carry_10000_137
 	setb	c
 	subb	a,r2
 	cpl	a
 	mov	r2,a
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:9: out[counter] = temp & 0xFF;
-	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_112
-	add	a, _SUBUINTC_STATIC_IDATA_out_10000_111
+	mov	a,_SUBUINTC_STATIC_IDATA_counter_10000_137
+	add	a, _SUBUINTC_STATIC_IDATA_out_10000_136
 	mov	r0,a
 	mov	@r0,ar2
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:10: carry = inp1[counter] < (inp2[counter] + carry);
@@ -180,7 +180,7 @@ _SUBUINTC_STATIC_IDATA:
 	movc	a,@a+dptr
 	mov	r6,a
 	mov	r7,#0x00
-	mov	r4,_SUBUINTC_STATIC_IDATA_carry_10000_112
+	mov	r4,_SUBUINTC_STATIC_IDATA_carry_10000_137
 	mov	r5,#0x00
 	mov	a,r4
 	add	a, r6
@@ -198,9 +198,9 @@ _SUBUINTC_STATIC_IDATA:
 	subb	a,b
 	clr	a
 	rlc	a
-	mov	_SUBUINTC_STATIC_IDATA_carry_10000_112,a
+	mov	_SUBUINTC_STATIC_IDATA_carry_10000_137,a
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:11: counter++;
-	inc	_SUBUINTC_STATIC_IDATA_counter_10000_112
+	inc	_SUBUINTC_STATIC_IDATA_counter_10000_137
 	sjmp	00101$
 00103$:
 ;	subuintcore/SUBUINTCORE_STATIC_IDATA.c:13: return;
